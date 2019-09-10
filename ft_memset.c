@@ -6,7 +6,7 @@
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 17:02:52 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/10 19:07:40 by ggeordi          ###   ########.fr       */
+/*   Updated: 2019/09/10 23:23:37 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memset(void *destination, int c, size_t n)
 	dst = (unsigned char*)destination;
 	while (i < n)
 	{
-		dst[i] = c;
+		dst[i] = (unsigned char)(c);
 		i++;
 	}
 	return (destination);
