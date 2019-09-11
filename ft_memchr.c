@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 21:13:14 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/11 17:57:52 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/11 15:45:52 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/11 15:54:55 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*ft_memccpy(void *destination, const void *source, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t			i;
-	unsigned char	*dst;
 	unsigned char	*src;
 
-	dst = (unsigned char*)(destination);
-	src = (unsigned char*)(source);
 	i = 0;
+	src = (unsigned char*)(s);
 	while (i < n)
 	{
-		dst[i] = src[i];
+		if (src[i] == (unsigned char)(c))
+			return (&src[i]);
 		i++;
-		if (src[i - 1] == (unsigned char)(c))
-			return (&dst[i]);
 	}
 	return (NULL);
 }

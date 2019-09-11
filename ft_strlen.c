@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 21:13:14 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/11 17:57:52 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/11 17:31:47 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/11 17:57:30 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*ft_memccpy(void *destination, const void *source, int c, size_t n)
+size_t	ft_strlen(const char *s)
 {
-	size_t			i;
-	unsigned char	*dst;
-	unsigned char	*src;
+	int		i;
 
-	dst = (unsigned char*)(destination);
-	src = (unsigned char*)(source);
 	i = 0;
-	while (i < n)
-	{
-		dst[i] = src[i];
+	while (s[i])
 		i++;
-		if (src[i - 1] == (unsigned char)(c))
-			return (&dst[i]);
-	}
-	return (NULL);
+	return (i);
 }

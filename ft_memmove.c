@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 21:13:14 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/11 17:57:52 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/11 15:23:48 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/11 19:10:47 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdlib.h>
+#include <libft.h>
 
-void	*ft_memccpy(void *destination, const void *source, int c, size_t n)
+void	*ft_memmove(void *destination, const void *src, size_t n)
 {
-	size_t			i;
+	unsigned char	*buf;
 	unsigned char	*dst;
-	unsigned char	*src;
+	size_t			i;
 
-	dst = (unsigned char*)(destination);
-	src = (unsigned char*)(source);
 	i = 0;
-	while (i < n)
-	{
-		dst[i] = src[i];
-		i++;
-		if (src[i - 1] == (unsigned char)(c))
-			return (&dst[i]);
-	}
-	return (NULL);
+	dst = (unsigned char*)(destination);
+	buf = (unsigned char*)malloc(n);
+	ft_memcpy(buf, src, n);
+	ft_memcpy(dst, buf, n);
+	free(buf);
+	return (dst);
 }

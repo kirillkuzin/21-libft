@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 21:13:14 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/11 17:57:52 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/11 16:25:30 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/11 19:21:02 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*ft_memccpy(void *destination, const void *source, int c, size_t n)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t			i;
-	unsigned char	*dst;
-	unsigned char	*src;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	dst = (unsigned char*)(destination);
-	src = (unsigned char*)(source);
-	i = 0;
-	while (i < n)
+	if (s1 == s2 || n == 0)
+		return (0);
+	str1 = (unsigned char*)(s1);
+	str2 = (unsigned char*)(s2);
+	while (n)
 	{
-		dst[i] = src[i];
-		i++;
-		if (src[i - 1] == (unsigned char)(c))
-			return (&dst[i]);
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		if (n)
+		{
+			str1++;
+			str2++;
+		}
 	}
-	return (NULL);
+	return (0);
 }

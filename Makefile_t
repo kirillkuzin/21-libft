@@ -6,11 +6,11 @@
 #    By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/10 17:16:30 by ggeordi           #+#    #+#              #
-#    Updated: 2019/09/11 18:50:31 by ggeordi          ###   ########.fr        #
+#    Updated: 2019/09/10 17:43:49 by ggeordi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = tests
 FLAGS = -Wall -Wextra -Werror
 HEADERS = .
 OPTIONS = -c -I $(HEADERS)
@@ -22,13 +22,12 @@ all: $(NAME)
 
 $(NAME):
 	gcc $(FLAGS) $(OPTIONS) $(SRC)
-	ar rc $(NAME).a $(OBJ)
-	ranlib $(NAME).a
+	gcc $(OBJ) $(RESULT)
 
 clean:
 	rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME).a
+	rm -rf $(NAME)
 
 re: fclean all
