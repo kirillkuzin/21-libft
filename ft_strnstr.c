@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 20:58:11 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/13 20:58:13 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/13 22:19:18 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/13 23:01:23 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "libft.h"
 
-size_t  ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-    size_t  i;
-    size_t  j;
-	size_t	len;
 
-    i = 0;
-    j = 0;
-	len = ft_strlen(dst) + ft_strlen(src);
-	while (dst[i])
-        i++;
-    while (j < dstsize - 1 && src[j])
-    {
-        dst[i] = src[j];
-        i++;
-        j++;
-    }
-    dst[i] = '\0';
-	return (len);
+	char	*str;
+	char	*c;
+	//int		i;
+	
+	str = (char*)malloc(sizeof(char) * len);
+	ft_strncpy(str, haystack, len - 1);
+	str[len - 1] = '\0';
+	//i = len - ft_strlen(ft_strstr(str, needle)) - 1;
+	///printf("%d", i);
+	c = ((char*)&haystack[len - 1 - ft_strlen(ft_strstr(str, needle))]);
+	printf("%s", c);
+	return (c);
 }

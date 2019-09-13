@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 20:58:05 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/13 21:01:44 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/13 21:03:58 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/13 21:10:32 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-	size_t	j;
+	char	*str;
+	char	cc;
 
-	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j])
+	str = (char*)(s);
+	cc = (char)(c);
+	while (*str)
 	{
-		s1[i] = s2[j];
-		i++;
-		j++;
+		if (*str == cc)
+			return (str);
+		str++;
 	}
-	s1[i] = '\0';
-	return (s1);
+	if (cc == '\0')
+		return (str);
+	else
+		return (NULL);
 }

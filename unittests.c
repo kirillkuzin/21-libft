@@ -6,7 +6,7 @@
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 17:07:22 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/11 18:07:49 by ggeordi          ###   ########.fr       */
+/*   Updated: 2019/09/13 22:39:44 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -293,6 +293,47 @@ void    handler_ft_strncat(void)
     success_message("ft_strncat");
 }
 
+void	test_ft_strlcat(void)
+{
+	char src[50] = {0};
+	char ideal[50] = {0};
+	size_t sz_src;
+	size_t sz_ideal;
+
+	sz_src = ft_strlcat(src, "Hello", 4);
+	sz_ideal = strlcat(ideal, "Hello", 4);
+	assert(!strcmp(src, ideal));
+	assert(sz_src == sz_ideal);
+	memset(src, 0, sizeof(src));
+	memset(ideal, 0, sizeof(ideal));
+	sz_src = ft_strlcat(src, "Hello", 4);
+	sz_ideal = strlcat(ideal, "Hello", 4);
+	printf("%s\n%zu\n%s\n%zu", src, sz_src, ideal, sz_ideal);	
+	assert(!strcmp(src, ideal));
+	
+	assert(sz_src == sz_ideal);
+	sz_src = ft_strlcat(src, "Hello", 1);
+	sz_ideal = strlcat(ideal, "Hello", 1);
+	printf("%s\n%zu\n%s\n%zu", src, sz_src, ideal, sz_ideal);
+	assert(!strcmp(src, ideal));
+	assert(sz_src == sz_ideal);
+}
+
+void	handler_ft_strlcat(void)
+{
+	start_message("ft_strlcat");
+	test_ft_strlcat();
+	success_message("ft_strlcat");
+}
+
+void	test_ft_strnstr(void)
+{
+	char *s1 = ft_strnstr("Hello les genw", "Hello", 6);
+	char *s2 = strnstr("Hello les genw", "Hello", 6);
+	printf("%s\n%s\n", s1, s2);
+	assert(!strcmp(s1, s2));
+}
+
 void	tests_run(void)
 {
 	handler_ft_memset();
@@ -305,6 +346,7 @@ void	tests_run(void)
 	handler_ft_strcpy();
     handler_ft_strcat();
     handler_ft_strncat();
+	test_ft_strnstr();
 }
 
 int		main(int argc, char **argv)

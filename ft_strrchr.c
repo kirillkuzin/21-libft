@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 20:58:05 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/13 21:01:44 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/13 21:11:45 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/13 21:39:39 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
-	size_t	j;
+	char	*c_pos;
+	char	*s_pos;
 
-	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j])
+	c_pos = ft_strchr(s, c);
+	if (c_pos != NULL && *c_pos != '\0')
 	{
-		s1[i] = s2[j];
-		i++;
-		j++;
+		s_pos = c_pos;
+		c_pos = ft_strrchr(c_pos + 1, c);
+		if (c_pos == NULL)
+			return (s_pos);
 	}
-	s1[i] = '\0';
-	return (s1);
+	return (c_pos);
 }
