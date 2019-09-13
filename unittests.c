@@ -257,6 +257,42 @@ void	handler_ft_strcpy(void)
 	success_message("ft_strcpy");
 }
 
+void    test_ft_strcat(void)
+{
+    char src[16] = "Hello";
+    char ideal[16] = "Hello";
+
+    ft_strcat(src, " world");
+    strcat(ideal, " world");
+    assert(!strcmp(src, "Hello world"));
+    assert(!strcmp(src, ideal));
+}
+
+void    handler_ft_strcat(void)
+{
+    start_message("ft_strcat");
+    test_ft_strcat();
+    success_message("ft_strcat");
+}
+
+void    test_ft_strncat(void)
+{
+    char src[16] = "Hello";
+    char ideal[16] = "Hello";
+
+    ft_strncat(src, " world", 3);
+    strncat(ideal, " world", 3);
+    assert(!strcmp(src, "Hello wo"));
+    assert(!strcmp(src, ideal));
+}
+
+void    handler_ft_strncat(void)
+{
+    start_message("ft_strncat");
+    test_ft_strncat();
+    success_message("ft_strncat");
+}
+
 void	tests_run(void)
 {
 	handler_ft_memset();
@@ -267,6 +303,8 @@ void	tests_run(void)
 	handler_ft_memchr();
 	handler_ft_memcmp();
 	handler_ft_strcpy();
+    handler_ft_strcat();
+    handler_ft_strncat();
 }
 
 int		main(int argc, char **argv)

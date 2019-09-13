@@ -21,8 +21,8 @@ OBJ = *.o
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) $(OPTIONS) $(SRC)
-	gcc $(OBJ) $(RESULT)
+	gcc $(FLAGS)    $(OPTIONS)  $(SRC)
+	gcc $(OBJ)  $(RESULT)
 
 clean:
 	rm -rf $(OBJ)
