@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 00:04:22 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/17 00:05:29 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/16 23:17:02 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/16 23:18:00 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int		ft_isdigit(int c)
 {
-
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

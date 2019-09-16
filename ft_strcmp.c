@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 00:04:22 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/17 00:05:29 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/16 21:37:56 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/16 21:39:59 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int		ft_strcmp(const char *s1, const char *s2)
 {
+	char	*str1;
+	char	*str2;
 
+	str1 = (char*)(s1);
+	str2 = (char*)(s2);
+	while (*str1 == *str2 && *str1 && *str2)
+	{
+		str1++;
+		str2++;
+	}
+	return (*str1 - *str2);
 }

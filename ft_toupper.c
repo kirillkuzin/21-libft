@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 00:04:22 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/17 00:05:29 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/16 23:42:59 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/16 23:43:57 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int		ft_toupper(int c)
 {
-
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }

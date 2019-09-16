@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 00:04:22 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/17 00:05:29 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/16 23:31:47 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/16 23:32:50 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int		ft_isalnum(int c)
 {
-
+	if (ft_isdigit(c) == 1)
+		return (1);
+	else
+		return (ft_isalpha(c));
 }

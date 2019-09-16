@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 00:04:22 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/17 00:05:29 by ggeordi          ###   ########.fr       */
+/*   Created: 2019/09/16 23:41:16 by ggeordi           #+#    #+#             */
+/*   Updated: 2019/09/16 23:41:52 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int		ft_isprint(int c)
 {
-
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }
