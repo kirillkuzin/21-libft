@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: ggeordi <ggeordi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/10 17:16:30 by ggeordi           #+#    #+#              #
-#    Updated: 2019/09/11 18:50:31 by ggeordi          ###   ########.fr        #
+#    Updated: 2019/09/20 21:46:26 by ggeordi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
 HEADERS = .
 OPTIONS = -c -I $(HEADERS)
@@ -22,13 +22,13 @@ all: $(NAME)
 
 $(NAME):
 	gcc $(FLAGS) $(OPTIONS) $(SRC)
-	ar rc $(NAME).a $(OBJ)
-	ranlib $(NAME).a
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 clean:
 	rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME).a
+	rm -rf $(NAME)
 
 re: fclean all

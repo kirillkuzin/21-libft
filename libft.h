@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ggeordi <ggeordi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 17:14:11 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/18 21:52:38 by ggeordi          ###   ########.fr       */
+/*   Updated: 2019/09/20 21:18:32 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include	<string.h>
-#include	<stdlib.h>
+# include <unistd.h>
+# include <string.h>
+# include <stdlib.h>
 
 void	*ft_memset(void *dst, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -61,6 +62,14 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
 char	**ft_strsplit(char const *s, char c);
-
+char	*ft_itoa(int n);
+void	ft_putchar(char c);
+void	ft_putstr(char const *s);
+void	ft_putendl(char const *s);
+void	ft_putnbr(int n);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char const *s, int fd);
+void	ft_putend_fd(int n, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif

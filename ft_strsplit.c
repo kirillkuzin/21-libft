@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "libft.h"
 
 int		split_count(char const *s, char c)
 {
@@ -55,32 +55,34 @@ char	**ft_strsplit(char const *s, char c)
 		f = i;
 		while (s[i] != c && s[i])
 			i++;
-		// printf("%zu %zu\n", i, f);
 		if (i == f)
 			break ;
 		arr[j] = (char*)malloc(i - f + 1);
-		printf("%zu", sizeof(arr[j]));
-		strncpy(arr[j], &s[f], i - f);
+		if (arr[j] == NULL)
+			return (NULL);
+		ft_strncpy(arr[j], &s[f], i - f);
 		arr[j][i - f] = '\0';
-		printf("%s\n", arr[j]);
 		j++;
 	}
 	arr[j] = (char*)malloc(sizeof(char));
+	if (arr[j] == NULL)
+		return (NULL);
 	arr[j][0] = '\0';
 	return (arr);
 }
 
-int		main(int argc, char **argv)
-{
-	char	**out;
-	size_t	i;
-
-	i = 0;
-	out = ft_strsplit("split  ||this|for|me|||||!|", '|');
-	while (out[i][0])
-	{
-		printf("%s\n", out[i]);
-		i++;
-	}
-	return (1);
-}
+// int		main(int argc, char **argv)
+// {
+// 	char	**out;
+// 	size_t	i;
+//
+// 	i = 0;
+// 	out = ft_strsplit("split  ||this|for|me|||||!|", '|');
+// 	char	**expected = (char*[6]){"split  ", "this", "for", "me", "!", NULL};
+// 	while (out[i][0])
+// 	{
+// 		printf("%s %s %d\n", out[i], expected[i], strcmp(out[i], expected[i]));
+// 		i++;
+// 	}
+// 	return (1);
+// }
