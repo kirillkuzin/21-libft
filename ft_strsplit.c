@@ -23,9 +23,14 @@ int		split_count(char const *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+		if (s[i] != c)
+		{
 			count++;
-		i++;
+			while (s[i] != c && s[i])
+				i++;
+		}
+		else
+			i++;
 	}
 	return (count);
 }
@@ -43,8 +48,6 @@ char	**ft_strsplit(char const *s, char c)
 	arr = (char**)malloc(sizeof(char*) * (split_count(s, c) + 1));
 	if (arr == NULL)
 		return (NULL);
-	arr[split_count(s, c)] = (char*)malloc(sizeof(char));
-	arr[split_count(s, c)][0] = '\0';
 	while (s[i])
 	{
 		while (s[i] == c && s[i])
@@ -52,29 +55,32 @@ char	**ft_strsplit(char const *s, char c)
 		f = i;
 		while (s[i] != c && s[i])
 			i++;
-		//printf("%zu %zu\n", i, f);
+		// printf("%zu %zu\n", i, f);
 		if (i == f)
 			break ;
-		arr[j] = (char*)malloc(sizeof(char) * (i - f + 1));
+		arr[j] = (char*)malloc(i - f + 1);
+		printf("%zu", sizeof(arr[j]));
 		strncpy(arr[j], &s[f], i - f);
 		arr[j][i - f] = '\0';
-		i++;
+		printf("%s\n", arr[j]);
 		j++;
 	}
+	arr[j] = (char*)malloc(sizeof(char));
+	arr[j][0] = '\0';
 	return (arr);
 }
 
-//int		main(int argc, char **argv)
-//{
-	//char	**out;
-	//size_t	i;
+int		main(int argc, char **argv)
+{
+	char	**out;
+	size_t	i;
 
-	//i = 0;
-	//out = ft_strsplit("*hello*fellow**students*", '*');
-	//while (out[i][0])
-	//{
-		//printf("%s\n", out[i]);
-		//i++;
-	//}
-	//return (1);
-//}
+	i = 0;
+	out = ft_strsplit("split  ||this|for|me|||||!|", '|');
+	while (out[i][0])
+	{
+		printf("%s\n", out[i]);
+		i++;
+	}
+	return (1);
+}
