@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ggeordi <ggeordi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 21:26:19 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/18 22:57:13 by ggeordi          ###   ########.fr       */
+/*   Updated: 2019/09/22 15:11:33 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	if (s)
+	if (s && f)
 	{
 		while (*s)
 		{

@@ -6,13 +6,13 @@
 /*   By: ggeordi <ggeordi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 20:49:34 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/20 20:49:35 by ggeordi          ###   ########.fr       */
+/*   Updated: 2019/09/22 19:36:15 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		get_char_count(int n)
+static int	get_char_count(int n)
 {
 	int		f;
 
@@ -25,7 +25,7 @@ int		get_char_count(int n)
 	return (f);
 }
 
-int		is_negative(int n, int *negative)
+static int	is_negative(int n, int *negative)
 {
 	if (n < 0)
 	{
@@ -43,7 +43,7 @@ int		is_negative(int n, int *negative)
 	return (n);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char		*str;
 	int			i;

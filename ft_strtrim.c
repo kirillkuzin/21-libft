@@ -3,32 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggeordi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ggeordi <ggeordi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 23:15:56 by ggeordi           #+#    #+#             */
-/*   Updated: 2019/09/18 23:38:44 by ggeordi          ###   ########.fr       */
+/*   Updated: 2019/09/22 19:36:48 by ggeordi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		is_space(char c)
+static int		is_space(char c)
 {
 	if (c == ' ' || c == '\n' || c == '\t')
 		return (1);
 	return (0);
 }
 
-char	*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	char	*strcp;
 	size_t	start;
 	size_t	end;
 
 	start = 0;
-	end = ft_strlen(s);
 	if (s)
 	{
+		end = ft_strlen(s);
 		while (is_space(s[start]) && s[start])
 			start++;
 		while (is_space(s[end - 1]) && s[end - 1])
